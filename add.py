@@ -47,6 +47,9 @@ def darwin_add(args):
         stage_file(file_name, file_dictionary)
 
 def stage_file(file_name, file_dictionary):
+    # normalising paths into the same standardized format before storing in index
+    file_name = os.path.normpath(file_name)
+
     # read the file contents and check if the object ID already exists
     with open(file_name, "rb") as f:
         file_content = f.read()
